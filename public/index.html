@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Stocks · Realtime Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel sidebar">
+        <div class="header-block">
+          <h1>Indian Stocks</h1>
+          <p>5-minute Yahoo Finance data</p>
+        </div>
+        <label class="search-wrap" for="searchInput">
+          <span>Search by company or symbol</span>
+          <input id="searchInput" type="text" placeholder="Type to search..." autocomplete="off" />
+        </label>
+        <div id="stockCount" class="muted">Loading stock universe...</div>
+        <ul id="stockList" class="stock-list"></ul>
+      </section>
+
+      <section class="panel content">
+        <div id="emptyState" class="empty">Select a stock to view 5-minute statistics.</div>
+
+        <div id="stockDetails" class="hidden">
+          <div class="title-row">
+            <div>
+              <h2 id="stockName"></h2>
+              <p id="stockSymbol" class="muted"></p>
+            </div>
+            <div id="liveBadge" class="live">LIVE · 5m</div>
+          </div>
+
+          <div class="price-row">
+            <div class="price-card">
+              <span>Last Price</span>
+              <strong id="latestPrice">—</strong>
+            </div>
+            <div class="price-card">
+              <span>Change (5d)</span>
+              <strong id="priceChange">—</strong>
+            </div>
+            <div class="price-card">
+              <span>RSI (14)</span>
+              <strong id="rsi">—</strong>
+            </div>
+          </div>
+
+          <div class="stats-grid" id="statsGrid"></div>
+
+          <div class="table-wrap">
+            <h3>Recent 5-minute candles</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Open</th>
+                  <th>High</th>
+                  <th>Low</th>
+                  <th>Close</th>
+                  <th>Volume</th>
+                </tr>
+              </thead>
+              <tbody id="timelineBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
